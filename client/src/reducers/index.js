@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import wishListReducer from './wishList';
+import searchResultsReducer from './searchResults';
 
 export default combineReducers({
-    wishList: wishListReducer,
+    searchResults: searchResultsReducer,
+    wishList: {}
 });

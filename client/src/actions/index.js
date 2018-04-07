@@ -1,9 +1,13 @@
-export const SEARCH_FOR_ITEMS = 'SEARCH_FOR_ITEMS';
+import axios from 'axios';
+import * as actionTypes from './types';
+const SEARCH_ROOT_URL = 'https://www.adidas.co.uk/api/suggestions/';
 
-export function searchForItems(querry){
-    console.log(querry);
-    return {
-        type: SEARCH_FOR_ITEMS,
-        payload: querry
+export const findItems = (querry) => async dispatch => {
+    try{
+        const res = await axios.get(SEARCH_ROOT_URL + querry);
+        dispatch({ type: actionTypes.FIND_ITEMS, payload: res.data });
+    } catch (error){
+        console.error(error);
     }
-}
+};
+

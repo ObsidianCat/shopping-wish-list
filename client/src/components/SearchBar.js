@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { searchForItems } from "../actions";
+import { findItems } from "../actions";
 import {connect} from 'react-redux';
 
 class SearchBar extends Component{
@@ -18,7 +18,7 @@ class SearchBar extends Component{
 
     onFormSubmit(event){
         event.preventDefault();
-        this.props.searchForItems(this.state.term);
+        this.props.findItems(this.state.term);
         this.setState({term: ""});
     }
 
@@ -42,7 +42,7 @@ class SearchBar extends Component{
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({ searchForItems }, dispatch);
+    return bindActionCreators({ findItems }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
