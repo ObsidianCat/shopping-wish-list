@@ -10,6 +10,7 @@ const db = {
 
 module.exports = {
     createItem: (data) => {
+        data.id = idCounter;
         db.wishes[idCounter] = data;
         idCounter++;
 
