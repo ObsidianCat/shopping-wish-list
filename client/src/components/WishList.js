@@ -1,36 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Wish from "./Wish";
+import { bindActionCreators } from 'redux';
+import {getWishes} from '../actions';
+
 
 class WishList extends Component {
-
+    componentDidMount() {
+        this.props.getWishes();
+    }
 
     mapWishesToListItems(wishes){
-        const mappedToComponents = Object.entries(this.props.wishes).map((item) => {
+        const mappedToComponents = wishes.map((item) => {
             return (
                 <Wish key={item[0]} details={item[1]}/>
             );
         });
 
-        // const mappedToComponents = Object.keys(this.props.wishes).map(function (key) {
-        //     return  <Wish key={key} details={this.props.wishes[key]}/>
-        // });
-        //     //var item = this.state.items[key]
-
-        return mappedToComponents;
+        return (
+            <ul>
+                {mappedToComponents}
+            </ul>
+        )
     }
     render(){
-        console.log(this.props.wishes);
+        const wishesAsArray = Object.entries(this.props.wishes);
+        let result = null;
+        if(wishesAsArray.length>0){
+            result = this.mapWishesToListItems(wishesAsArray);
+        } else{
+            result = (<p>Your wish list is empty. Try to search for some pretty items first.</p>)
+        }
+
         return (
-        <ul>
-            {this.mapWishesToListItems(this.props.wishes)}
-        </ul>
+            result
         )
     }
 
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({ getWishes }, dispatch);
 }
 function mapStateToProps({ wishes }) {
     return { wishes };
 }
 
-export default connect(mapStateToProps)(WishList);
+export default connect(mapStateToProps, mapDispatchToProps)(WishList);

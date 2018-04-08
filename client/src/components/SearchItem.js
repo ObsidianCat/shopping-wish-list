@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
 import { bindActionCreators } from 'redux';
-
 import { connect } from 'react-redux';
 import {addItemToWishlist} from '../actions';
 
@@ -11,7 +10,6 @@ class SearchItem extends Component {
         super(props);
         this.onAddBtnClick = this.onAddBtnClick.bind(this);
         this.state = {
-            // "DataSource" is some global data source
             isInWishList: false
         };
     }

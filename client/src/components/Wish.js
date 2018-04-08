@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
 import { bindActionCreators } from 'redux';
-
 import { connect } from 'react-redux';
-const Wish = (props) => {
-    return (
-        <li>
-            {props.details.suggestion}
-            <Button
-                //onClick={this.onAddBtnClick}
-                //disabled={this.state.isInWishList}
-            >Remove from wishlist</Button>
-        </li>
-    );
-};
+import {deleteWish} from '../actions';
 
-export default Wish;
+
+class Wish extends Component{
+    constructor(props) {
+        super(props);
+        this.onRemoveBtnClick = this.onRemoveBtnClick.bind(this);
+
+    }
+    onRemoveBtnClick(e){
+        e.preventDefault();
+        this.props.deleteWish(this.props.details.id);
+
+    }
+    render(){
+        return (
+            <li>
+                {this.props.details.suggestion}
+                <Button
+                    onClick={this.onRemoveBtnClick}
+                >Remove from wishlist</Button>
+            </li>
+        );
+    }
+
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({ deleteWish }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Wish);

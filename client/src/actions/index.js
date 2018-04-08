@@ -30,3 +30,12 @@ export const getWishes = () => async dispatch => {
         console.error(error);
     }
 };
+
+export const deleteWish = (id) => async dispatch => {
+    try{
+        const res = await axios.delete(`${WISHLIST_ROOT_URL}/${id}`);
+        dispatch({ type: actionTypes.DELETE_WISH, payload: {id} });
+    } catch (error){
+        console.error(error);
+    }
+};

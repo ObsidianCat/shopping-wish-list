@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { findItems } from "../actions";
 import {connect} from 'react-redux';
+import { Input } from 'antd';
+import { Button } from 'antd';
 
 class SearchBar extends Component{
     constructor(props){
@@ -25,17 +27,15 @@ class SearchBar extends Component{
     render(){
         return (
             <form onSubmit={this.onFormSubmit} className="input-group">
-                <input
+                <Input
                     placeholder="type something to search"
-                    className="form-control"
                     value={this.state.term}
                     onChange={this.onInputChange}
+                    className="search"
                 />
-                <span className="input-group-btn">
-                    <button type="submit">
+                <Button type="primary" htmlType="submit">
                         Submit
-                    </button>
-                </span>
+                </Button>
             </form>
         );
     }
