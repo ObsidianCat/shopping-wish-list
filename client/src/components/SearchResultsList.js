@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ItemDetails from "./itemDetails";
+import SearchItem from "./SearchItem";
 
-class ItemsList extends Component {
+class SearchResultsList extends Component {
 
     mapDataToItems(products){
         const items = products.map((product, counter)=>{
-            return <ItemDetails key={counter} product={product}/>;
+            return <SearchItem key={counter} product={product}/>;
         });
 
         return items;
@@ -28,4 +28,4 @@ function mapStateToProps({ searchResults }) {
     return { searchResults };
 }
 
-export default connect(mapStateToProps)(ItemsList);
+export default connect(mapStateToProps)(SearchResultsList);

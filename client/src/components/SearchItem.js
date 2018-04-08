@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ItemDetails = (props) => {
+const SearchItem = (props) => {
     return (
         <li>
             {props.product.suggestion}
@@ -8,4 +8,4 @@ const ItemDetails = (props) => {
     );
 };
 
-export default ItemDetails;
+export default SearchItem;

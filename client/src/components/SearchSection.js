@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import SearchBar from "./SearchBar";
-import ItemsList from "./ItemsList";
+import SearchResultsList from "./SearchResultsList";
 
 export default (props)=> {
     return (
         <div>
             <SearchBar/>
-            <ItemsList/>
+            <SearchResultsList/>
         </div>
     );
 };
