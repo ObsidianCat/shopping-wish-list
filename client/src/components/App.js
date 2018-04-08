@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo from '../logo-blue.png';
 import '../App.css';
 import SearchSection from './SearchSection';
 import WishList from './WishList';
@@ -12,7 +12,6 @@ class App extends Component {
       <div className="App">
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Adidas wishlist</h1>
             </header>
               <Tabs defaultActiveKey="1">
                   <TabPane tab="Wishlist" key="1">
