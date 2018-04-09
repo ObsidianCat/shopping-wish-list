@@ -1,3 +1,4 @@
+const cloneDeep = require('lodash/cloneDeep');
 // This file represent in-memory database implementation
 // the reason for this decision is within assigment
 // Take into account the interviewer will only have NodeJS installed on his or her machine.
@@ -11,7 +12,7 @@ const db = {
 module.exports = {
   createItem: (data) => {
     data.id = idCounter
-    db.wishes[idCounter] = data
+    db.wishes[idCounter] = cloneDeep(data)
     idCounter++
 
     return db.wishes[idCounter - 1]
@@ -25,7 +26,4 @@ module.exports = {
   deleteItem: (id) => {
     delete db.wishes[id]
   },
-  getIdCounter: () => {
-    return idCounter
-  }
 }

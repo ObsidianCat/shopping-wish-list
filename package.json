@@ -8,13 +8,14 @@
     "server-dev": "nodemon ./bin/www",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server-dev\" \"npm run client\"",
-    "lint-server":"./node_modules/.bin/eslint src"
+    "lint-server": "./node_modules/.bin/eslint src"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "lodash": "^4.17.5",
     "morgan": "~1.9.0",
     "save-dev": "^2.0.0",
     "supertest": "^3.0.0"

@@ -36,20 +36,18 @@ describe('Test the GET end point', () => {
 
 describe('Test the POST wish end point', () => {
   test('The valid inputs data should be saved in database and contain all required properties', async () => {
-    const expectedId = db.getIdCounter()
+    let id = null;
     try {
       let response = await request(app)
         .post(`/wishlist`)
         .send({'wish': testWish})
-
+      id = response.body.id
       expect(response.statusCode).toEqual(200)
-
-      const responseFromDb = db.getItems()
-      expect(responseFromDb[expectedId]).toEqual(expect.objectContaining(testWish))
+      expect(response.body).toEqual(db.getItemById(id))
     } catch (error) {
       throw new Error(error)
     } finally {
-      db.deleteItem(expectedId)
+      db.deleteItem(id)
     }
   })
 
