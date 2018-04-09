@@ -20,5 +20,8 @@ module.exports = {
     },
     deleteItem: (id)=>{
         delete db.wishes[id];
+    },
+    getIdCounter: ()=>{
+        return idCounter;
     }
 };

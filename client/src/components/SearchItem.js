@@ -26,7 +26,12 @@ class SearchItem extends Component {
     render(){
         return (
             <li>
-                {this.props.product.suggestion}
+                <a
+                    alt={this.props.product.suggestion}
+                    href={this.props.product.url}
+                    target="_blank"
+                >
+                    {this.props.product.suggestion}</a>
                 <Button
                     onClick={this.onAddBtnClick}
                     disabled={this.state.isInWishList}

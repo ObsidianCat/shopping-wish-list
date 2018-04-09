@@ -19,7 +19,12 @@ class Wish extends Component{
     render(){
         return (
             <li>
-                {this.props.details.suggestion}
+                <a
+                    alt={this.props.details.suggestion}
+                    href={this.props.details.url}
+                    target="_blank"
+                >
+                    {this.props.details.suggestion}</a>
                 <Button
                     onClick={this.onRemoveBtnClick}
                 >Remove from wishlist</Button>
