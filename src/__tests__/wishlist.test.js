@@ -49,3 +49,16 @@ describe('Test the POST wish end point', () => {
         }
     });
 });
+
+describe('Test the DELETE wish end point', () => {
+    test('When valid id is passed as param, the wish should be deleted from db', async () => {
+        const id = db.createItem(testWish).id;
+        expect(db.getItemById(id)).not.toBeUndefined();
+
+        await request(app)
+            .delete(`/wishlist/${id}`);
+
+        expect(db.getItemById(id)).toBeUndefined();
+
+    });
+});

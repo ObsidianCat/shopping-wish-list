@@ -14,9 +14,14 @@ module.exports = {
         db.wishes[idCounter] = data;
         idCounter++;
 
+        return db.wishes[idCounter-1];
+
     },
     getItems: () => {
         return db.wishes;
+    },
+    getItemById: (id) => {
+        return db.wishes[id];
     },
     deleteItem: (id)=>{
         delete db.wishes[id];
