@@ -16,7 +16,8 @@ const testWish = {
 
 describe('Test the POST wish end point', () => {
 
-    test('The inputs data should be saved in database and contain all required properties', async () => {
+    test('The valid inputs data should be saved in database and contain all required properties', async () => {
+        const expectedId = db.getIdCounter();
         try {
             let response = await request(app)
                 .post(`/wishlist`)
@@ -24,17 +25,27 @@ describe('Test the POST wish end point', () => {
 
             expect(response.statusCode).toEqual(200);
 
-            // const responseFromDb = await item.findItems({given_id: testObjectLeft.given_id});
-            // expect(responseFromDb.length).toBe(1);
-            // expect(responseFromDb[0]).toEqual(expect.objectContaining(testObjectLeft));
+            const responseFromDb = db.getItems();
+            expect(responseFromDb[expectedId]).toEqual(expect.objectContaining(testWish));
         }
         catch(error) {
             throw new Error(error);
         }
-        // finally {
-        //     ItemModel.remove({ given_id: testObjectLeft.given_id }).exec().catch((error)=>{
-        //         throw new Error(error);
-        //     })
-        // }
+        finally {
+            db.deleteItem(expectedId);
+        }
+    });
+
+    test('Request with empty object in body should be resulted in error response', async () => {
+        try {
+            let response = await request(app)
+                .post(`/wishlist`)
+                .send({});
+
+            expect(response.statusCode).toEqual(500);
+        }
+        catch(error) {
+            throw new Error(error);
+        }
     });
 });

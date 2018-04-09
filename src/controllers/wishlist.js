@@ -3,7 +3,8 @@ const db = require('../services/inMemoryDatabase');
 function postItem({req, res, next}) {
     const wish = req.body.wish;
     if (!wish) {
-        res.error("No wish provided")
+        next("No wish provided");
+        return;
     }
     try{
         const result = db.createItem(wish);
@@ -26,7 +27,8 @@ function getItems({req, res, next}) {
 function deleteItem({req, res, next}) {
     let id = req.params.id;
     if (!id) {
-        res.error("No id provided")
+        next("No id provided");
+        return;
     }
 
     try{

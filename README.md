@@ -33,3 +33,10 @@ npm run dev
 To start server and client side apps in parallel. By default the client side app will be accessible at 
 ###
 http://localhost:3000/
+
+## Running the tests
+Jest.js is used as test runner. Use 
+```
+npm test
+```
+to run tests.
