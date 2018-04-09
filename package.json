@@ -24,6 +24,7 @@
     "babel-preset-env": "^1.6.1",
     "concurrently": "^3.5.1",
     "jest": "^22.3.0",
-    "nodemon": "^1.17.0"
+    "nodemon": "^1.17.0",
+    "request": "^2.85.0"
   }
 }
