@@ -7,7 +7,7 @@
     "test": "jest",
     "server-dev": "nodemon ./bin/www",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server-dev\" \"npm run client\""
+    "dev": "concurrently \"npm run server-dev\" \"npm run client\"",
     "lint-server":"./node_modules/.bin/eslint src"
   },
   "dependencies": {

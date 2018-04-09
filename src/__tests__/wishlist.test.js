@@ -14,6 +14,26 @@ const testWish = {
   'standardPrice': 199.95
 }
 
+describe('Test the GET end point', () => {
+    test('Get requiest should bring back one wish-object', async () => {
+        const id = db.createItem(testWish).id;
+        try {
+            let response = await request(app)
+                .get(`/wishlist`)
+            const responseFromDb = db.getItems()
+
+            expect(response.statusCode).toEqual(200)
+            expect(responseFromDb).toEqual(response.body)
+
+        } catch (error) {
+            throw new Error(error)
+        } finally {
+            db.deleteItem(id)
+        }
+    })
+
+})
+
 describe('Test the POST wish end point', () => {
   test('The valid inputs data should be saved in database and contain all required properties', async () => {
     const expectedId = db.getIdCounter()
