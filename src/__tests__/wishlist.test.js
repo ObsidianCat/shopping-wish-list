@@ -28,9 +28,9 @@ describe('Test the POST wish end point', () => {
             // expect(responseFromDb.length).toBe(1);
             // expect(responseFromDb[0]).toEqual(expect.objectContaining(testObjectLeft));
         }
-        // catch(error) {
-        //     throw new Error(error);
-        // }
+        catch(error) {
+            throw new Error(error);
+        }
         // finally {
         //     ItemModel.remove({ given_id: testObjectLeft.given_id }).exec().catch((error)=>{
         //         throw new Error(error);

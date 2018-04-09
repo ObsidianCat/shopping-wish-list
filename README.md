@@ -17,11 +17,11 @@ In the project root directory, run
 ```
 npm start
 ```
-The applciation will be available, by default, at 
+The application will be available, by default, at 
 ###
 http://localhost:4000/
 
-### Running with development  version of client side app
+### Running with development version of client side app
 Withing the project folder, enter the 'client' directory and install required client-side dependencies with
 ```
 npm install
