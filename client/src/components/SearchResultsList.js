@@ -12,8 +12,10 @@ class SearchResultsList extends Component {
         return items;
 
     }
+
+
     render(){
-        console.log('type list' + this.props);
+        console.log(this.props);
         return (
             <ul>
                 {this.mapDataToItems(this.props.searchResults)}

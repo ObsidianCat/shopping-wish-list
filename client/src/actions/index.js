@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './types';
+import {CLEAR_SEARCH_RESULTS} from "./types";
 const SEARCH_ROOT_URL = 'https://www.adidas.co.uk/api/suggestions/';
 const WISHLIST_ROOT_URL = '/wishlist';
 
@@ -39,3 +40,9 @@ export const deleteWish = (id) => async dispatch => {
         console.error(error);
     }
 };
+
+export function clearSearchResults() {
+    return {
+        type: actionTypes.CLEAR_SEARCH_RESULTS
+    }
+}
