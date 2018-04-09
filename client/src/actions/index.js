@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as actionTypes from './types';
-import {CLEAR_SEARCH_RESULTS} from "./types";
 const SEARCH_ROOT_URL = 'https://www.adidas.co.uk/api/suggestions/';
 const WISHLIST_ROOT_URL = '/wishlist';
 
@@ -34,7 +33,7 @@ export const getWishes = () => async dispatch => {
 
 export const deleteWish = (id) => async dispatch => {
     try{
-        const res = await axios.delete(`${WISHLIST_ROOT_URL}/${id}`);
+        await axios.delete(`${WISHLIST_ROOT_URL}/${id}`);
         dispatch({ type: actionTypes.DELETE_WISH, payload: {id} });
     } catch (error){
         console.error(error);

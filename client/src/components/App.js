@@ -19,7 +19,7 @@ class App extends Component {
 
     onClickOnTab(activeKey){
         //if we call wishlist in view
-        if(activeKey == '1'){
+        if(activeKey === '1'){
             this.props.clearSearchResults();
         }
     }

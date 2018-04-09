@@ -16,7 +16,6 @@ class SearchItem extends Component {
 
     onAddBtnClick(e){
         e.preventDefault();
-        console.log(this.props);
         this.props.addItemToWishlist(this.props.product);
         this.setState({isInWishList: true})
 
