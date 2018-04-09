@@ -9,7 +9,7 @@ import {clearSearchResults} from "../actions";
 import {connect} from 'react-redux';
 const TabPane = Tabs.TabPane;
 
-class App extends Component {
+export class App extends Component {
 
     constructor(props){
         super(props);
