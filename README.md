@@ -17,7 +17,7 @@ In the project root directory, run
 ```
 npm start
 ```
-The application will be available, by default, at 
+The application will be available, by default at 
 ###
 http://localhost:4000/
 
